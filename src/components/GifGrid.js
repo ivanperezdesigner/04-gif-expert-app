@@ -1,29 +1,29 @@
-import React from 'react'
-import { apiKeyG } from '../keys/keys.js'
+import React, { useEffect, useState } from 'react'
+import { GifGridItem } from './GifGridItem.js'
+import { getGift } from '../helpers/getGifs.js'
 
 export const GifGrid = ({ category }) => {
 
-    const getGift = async() =>{
-        const url = `https://api.giphy.com/v1/gifs/search?q=Fight club&limit=10&api_key=${apiKeyG}`
-        const resp = await fetch(url)
-        const {data} = await resp.json()
-        
-        const gifs = data.map(img => {
-            return {
-                id: img.id,
-                title: img.title,
-                url: img.images?.downsized_medium.url
-            }
-        })
+    const [images, setImages] = useState([])
 
-        console.log(gifs)
-    }
-
-    getGift()
+    useEffect(() => {
+        getGift(category)
+            .then(imgs => setImages( imgs))
+    }, [category])
 
     return (
-        <div>
+        <>
             <h3>{ category }</h3>
-        </div>
+            <div className='card-grid'>
+                {
+                    images.map(img => (
+                    <GifGridItem 
+                        key={img.id}
+                        {...img}
+                    />
+                    ))
+                }
+            </div>
+        </>
     )
 }
