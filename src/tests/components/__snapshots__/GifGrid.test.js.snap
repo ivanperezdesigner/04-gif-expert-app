@@ -5,12 +5,22 @@ exports[`Probando el componente GifGrid Debe mostrar items cuando se cargan las 
   <h3>
     Amelie
   </h3>
-  <p>
-    Loading...
-  </p>
   <div
     className="card-grid"
-  />
+  >
+    <GifGridItem
+      id="ABC"
+      key="ABC"
+      title="Prueba"
+      url="https://localhost/imagen.png"
+    />
+    <GifGridItem
+      id="DEF"
+      key="DEF"
+      title="Prueba 2"
+      url="https://localhost/imagen2.png"
+    />
+  </div>
 </Fragment>
 `;
 
