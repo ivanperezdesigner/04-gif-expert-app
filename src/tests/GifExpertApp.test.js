@@ -15,5 +15,4 @@ describe('Probando el componenre <GifExpertApp', () => {
         expect(wrapper.find('GifGrid').length).toBe(categories.length)
 
     })
-    
 })
