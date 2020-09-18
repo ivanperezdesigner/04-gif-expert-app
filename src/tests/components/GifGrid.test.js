@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow } from "enzyme"
-import { GifGrid } from "../../components/GifGrid"
+import { shallow } from 'enzyme'
+import { GifGrid } from '../../components/GifGrid'
 import { useFetchGifs } from '../../hooks/useFetchGifs';
 import '@testing-library/jest-dom'
 jest.mock('../../hooks/useFetchGifs') // Fingir la llamada al archivo
